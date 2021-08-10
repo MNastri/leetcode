@@ -42,16 +42,34 @@
 #
 #
 # NUMS = [2, 7, 11, 15]
-# TARGET = 26
+# TARGET = 9
 #
 # if __name__ == '__main__':
 #     a = find_solution(nums=NUMS, target=TARGET)
 #     print(a)
 from typing import List
 
+
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        complement_hash = dict()
         for index, number in enumerate(nums):
+            if number in complement_hash:
+                index2 = complement_hash[number]
+                return [index, index2]
+            complement = target - number
+            complement_hash[complement] = index
+        return []
+
+    def brute_force_two_sum(self, nums: List[int], target: int) -> List[int]:
+        for index, number in enumerate(nums[:-1]):
             for index2, number2 in enumerate(nums[index+1:], start=index+1):
                 if nums[index] + nums[index2] == target:
                     return [index, index2]
+
+
+NUMS = [2, 7, 11, 15]
+TARGET = 9
+for several_targets in range(0,31):
+    a = Solution()
+    print('meu target é: %s. resposta %s' % (several_targets, a.twoSum(nums=NUMS, target=several_targets)))
