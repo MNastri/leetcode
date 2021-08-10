@@ -39,8 +39,8 @@ class Solution:
             quotient, remainder = divmod(xx, 10)
             xx = quotient
             reversed_number += remainder
-            print('xx:%s' % xx, end=", ")
-            print('rev:%s' % reversed_number)
+            # print('xx:%s' % xx, end=", ")
+            # print('rev:%s' % reversed_number)
             if xx == 0:
                 break
         if was_negative:
@@ -50,10 +50,19 @@ class Solution:
         return reversed_number
 
     def reverse_str(self, xx: int) -> int:
-        # ideia geral transformar em str e depois inverter os caracteres?
+        was_negative = True if xx < 0 else False
+        # print(str(xx)[1:][::-1], ' <-> ', str(xx)[::-1], end='. ')
+        reversed_str = str(xx)[1:][::-1] if was_negative else str(xx)[::-1]
+        reversed_integer = -int(reversed_str) if was_negative else int(reversed_str)
+        if reversed_integer > 2_147_483_647 or reversed_integer < -2_147_483_648:
+            return 0
+        return reversed_integer
+
+        # ideia geral: transformar em str e depois inverter os caracteres.
 
         # remover sinal negativo, se houver
-        print(str(x)[::-1])     # transformar em string e inverter string
+        # transformar em string
+        # inverter string
         # devolver sinal negativo, se havia
         # verificar se tem erro com tamanho do int
         #   lidar com erros
@@ -61,15 +70,16 @@ class Solution:
         #   lidar com zeros
         # transformar em int
         # retornar numero invertido
-        if xx == -1:
-            return -2
-        return -1
 
 
 def test(input_int):
-    print('\nInput %s' % input_int)
+    # print('\n\nInput %s' % input_int, end='. ')
+    # a = Solution()
+    # print('Output %s' % a.reverse(input_int), end='. ')
+
+    print('\n\nInput %s' % input_int, end='. ')
     a = Solution()
-    print('Output %s' % a.reverse(input_int))
+    print('Output %s' % a.reverse_str(input_int), end='. ')
     return
 
 
@@ -77,8 +87,10 @@ def main_loop():
     test(123)
     test(-123)
     test(120)
+    test(-120)
     test(0)
     test(1_534_236_469)
+    test(-1)
 
 
 if __name__ == '__main__':
