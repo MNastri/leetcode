@@ -45,6 +45,8 @@ class Solution:
                 break
         if was_negative:
             reversed_number *= -1
+        if reversed_number > 2_147_483_647 or reversed_number < -2_147_483_648:
+            return 0
         return reversed_number
 
     def reverse_str(self, xx: int) -> int:
@@ -76,6 +78,7 @@ def main_loop():
     test(-123)
     test(120)
     test(0)
+    test(1_534_236_469)
 
 
 if __name__ == '__main__':
