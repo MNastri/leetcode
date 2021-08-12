@@ -43,6 +43,8 @@ class Solution:
             new_xx_str = str(xx)[1:-1]
             if new_xx_str[0] == '0':
                 lead_zeros = len(new_xx_str) - len(new_xx_str.lstrip('0'))
+                if lead_zeros == len(new_xx_str):
+                    return True
                 trail_zeros = len(new_xx_str) - len(new_xx_str.rstrip('0'))
                 if lead_zeros != trail_zeros:
                     return False
@@ -77,11 +79,11 @@ def main_loop():
     test(100_020_001)
     test(100_002_001)
     # testar os negativos
-    # for ii in range(-1, -1_000, -1):
-    #     test(ii)
+    for ii in range(-1, -1_000, -1):
+        test(ii)
     # testar os não negativos
-    # for ii in range(1_000):
-    #     test(ii)
+    for ii in range(1_000):
+        test(ii)
 
 
 if __name__ == '__main__':
