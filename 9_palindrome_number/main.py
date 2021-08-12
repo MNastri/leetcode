@@ -28,7 +28,19 @@ from typing import List
 
 
 class Solution:
-    def isPalindrome(self, xx: int) -> bool:
+    def is_palindrome(self, xx: int) -> bool:
+        if xx < 0:
+            return False
+        if len('%i' % xx) == 1:
+            return True
+        if str(xx)[0] == str(xx)[-1]:
+            if len('%i' % xx) == 2:
+                return True
+            new_xx = int(str(xx)[1:-1])
+            return self.is_palindrome(new_xx)
+        return False
+
+    def is_palindrome_str(self, xx: int) -> bool:
         rev = int(str(abs(xx))[::-1])
         return False if xx < 0 else False if rev.bit_length() > 31 or xx != rev else True
 
@@ -43,31 +55,20 @@ class Solution:
         # verificar se é palindromo
 
 
-def test(input_int):
-    # FUNCIONOU DE PRIMEIRA ENTÃO NEM CRIEI TESTES
-    # DEIXEI TESTES ANTIGOS COMO REFERÊNCIA
-
-    # print('\n\nInput %s' % input_int, end='. ')
-    # a = Solution()
-    # print('Output %s' % a.reverse(input_int), end='. ')
-
-    # print('\n\nInput %s' % input_int, end='. ')
-    # a = Solution()
-    # print('Output %s' % a.reverse_str(input_int), end='. ')
-    return
+def test(input_int: int) -> None:
+    # tenho que aprender a colocar testes que retornam True, False ou então um código de erro para indicar erro
+    print('\nInput %i' % input_int, end='. ')
+    a = Solution()
+    print('Output %s' % a.is_palindrome(input_int), end='. ')
 
 
 def main_loop():
-    # FUNCIONOU DE PRIMEIRA ENTÃO NEM CRIEI TESTES
-    # DEIXEI TESTES ANTIGOS COMO REFERÊNCIA
-
-    # test(123)
-    # test(-123)
-    # test(120)
-    # test(-120)
-    # test(0)
-    # test(1_534_236_469)
-    test(-1)
+    # testar os negativos
+    for ii in range(-1, -1_000, -1):
+        test(ii)
+    # testar os positivos
+    for ii in range(1_000):
+        test(ii)
 
 
 if __name__ == '__main__':
