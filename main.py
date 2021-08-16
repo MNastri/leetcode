@@ -69,6 +69,11 @@ class Solution:
                   'M': 1000}
 
     def roman_to_int(self, s: str) -> int:
+        integer = 0
+        for caracter in s:
+            print(caracter, end=",")
+            integer += self.dict_roman[caracter]
+            print (f'({integer})')
         return 0
 
 
