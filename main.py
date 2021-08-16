@@ -68,12 +68,12 @@ class Solution:
                   'D': 500,
                   'M': 1000}
 
-    def roman_to_int(self, s: str) -> int:
+    def roman_to_int(self, ss: str) -> int:
         integer = 0
-        for index, caracter in enumerate(s):
+        for index, caracter in enumerate(ss):
             print(caracter, end=",")
-            print(f'(if {index+1}<{len(s)})', end='.')
-            if index+1 < len(s) and self.dict_roman[s[index+1]] > self.dict_roman[s[index]]:
+            print(f'(if {index+1}<{len(ss)})', end='.')
+            if index+1 < len(ss) and self.dict_roman[ss[index+1]] > self.dict_roman[ss[index]]:
                 integer -= self.dict_roman[caracter]
             else:
                 integer += self.dict_roman[caracter]
