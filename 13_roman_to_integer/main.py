@@ -59,20 +59,60 @@ from typing import List
 
 
 class Solution:
-    def romanToInt(self, s: str) -> int:
-        pass
+    """ Solução do problema. Não precisa inicializar"""
+    dict_roman = {'I': 1,
+                  'V': 5,
+                  'X': 10,
+                  'L': 50,
+                  'C': 100,
+                  'D': 500,
+                  'M': 1000}
+
+    def roman_to_int(self, ss: str) -> int:
+        integer = 0
+        for index, caracter in enumerate(ss):
+            print(caracter, end=",")
+            print(f'(if {index+1}<{len(ss)})', end='.')
+            if index+1 < len(ss) and self.dict_roman[ss[index+1]] > self.dict_roman[ss[index]]:
+                integer -= self.dict_roman[caracter]
+            else:
+                integer += self.dict_roman[caracter]
+            print(f'({integer})', end='.')
+        return integer
 
 
-
-def test(input_int: int) -> None:
-    # tenho que aprender a colocar testes que retornam True, False ou então um código de erro para indicar erro
-    print('\nInput %i' % input_int, end='. ')
-    # a = Solution()
-    # print('Output %s' % a.is_palindrome(input_int), end='. ')
+def test(input_int: str) -> None:
+    """ Teste a string na solução."""
+    print('\nInput %s' % input_int, end='. ')
+    a = Solution()
+    print('Output %i' % a.roman_to_int(input_int), end='. ')
 
 
 def main_loop():
-    pass
+    test('I')
+    test('V')
+    test('X')
+    test('L')
+    test('C')
+    test('D')
+    test('M')
+
+    test('IV')
+    test('IX')
+    test('XL')
+    test('XC')
+    test('CD')
+    test('CM')
+
+    test('MIV')
+    test('MIX')
+    test('MXL')
+    test('MXC')
+    test('MCD')
+    test('MCM')
+
+    test('MMMCMXCIX')
+
 
 if __name__ == '__main__':
     main_loop()
