@@ -70,11 +70,15 @@ class Solution:
 
     def roman_to_int(self, s: str) -> int:
         integer = 0
-        for caracter in s:
+        for index, caracter in enumerate(s):
             print(caracter, end=",")
-            integer += self.dict_roman[caracter]
-            print (f'({integer})')
-        return 0
+            print(f'(if {index+1}<{len(s)})', end='.')
+            if index+1 < len(s) and self.dict_roman[s[index+1]] > self.dict_roman[s[index]]:
+                integer -= self.dict_roman[caracter]
+            else:
+                integer += self.dict_roman[caracter]
+            print(f'({integer})', end='.')
+        return integer
 
 
 def test(input_int: str) -> None:
@@ -106,6 +110,8 @@ def main_loop():
     test('MXC')
     test('MCD')
     test('MCM')
+
+    test('MMMCMXCIX')
 
 
 if __name__ == '__main__':
