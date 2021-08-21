@@ -26,33 +26,30 @@ from typing import List
 class Solution:
     """ Solução do problema. Não precisa inicializar a classe"""
     def longest_common_prefix(self, strs: List[str]) -> str:
+        # ideias:
+        # salvar no string de retorno a primeira string dos inputs
+        # para as strings do input que não sejam a primeira
+        #   para os índices da string de retorno
+        #       comparar a string de retorno, até o índice usado, com ...
+        #       ...o prefixo, usando o mesmo índice, da string do input usado
+        #           se ret e pref forem iguais, continue
+        #           se ret e pref forem diferentes, retirar caracteres extras de ret
+        # quando a string de retorno tiver tamanho zero, retornar ""
         if 0 == len(strs):
             return ''
         if 1 == len(strs):
             return strs[0]
         return_str: str = strs[0]
 
-        # for first_item in strs:
-        #     for second_item in strs[strs.index(first_item)+1:]:
-        #         # print(f'f({first_item})', end='')
-        #         print(f', s({second_item})', end='')
-        #         # print(f', ret({return_str})', end='')
-        #         # print(f', len(return_strs)=={len(return_str)}', end='')
-        #         print('', end='. ')
-        #         if 0 == len(return_str):
-        #             return ''
-        #         return_str = return_str[:]
-        #         pass
-
-        # ideias:
-        # salvar no string de retorno a primeira string
-        # para as strings do input que não sejam a primeira
-        # para os índices da string de retorno
-        # comparar a string de retorno, até o índice usado, com ...
-        # ...o prefixo, usando o mesmo índice, da string do input usado
-        # se ret e pref forem iguais, continue
-        # se ret e pref forem diferentes, retirar caracteres extras de ret
-        # quando a string de retorno tiver tamanho zero, retornar ""
+        for items in strs[1:]:
+            for index in range(1, len(return_str)+1):
+                # por algum motivo return_str[0] = '', então começo o index de 1 verificar a partir de return_str[1]
+                print(f'({return_str[:index]}', end=',')
+                print(f'{items[:index]})', end='.')
+                if items[:index] != return_str[:index]:
+                    return_str = return_str[:index-1]
+                    print(f'=>{return_str}', end='.')
+                    break
         return return_str
 
 
