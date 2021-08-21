@@ -46,12 +46,31 @@ class Solution:
     def is_valid(self, ss: str) -> bool:
         """
         Retorne se a string tem abertura e fechamento de parenteses correta.
-        :param ss: string contendo apenas sinais de parenteses.
+        :param ss: string contendo apenas sinais de parenteses dentre os caracteres '()[]{}'.
         :return:
         """
-        stack = []
-        print(f'({stack})', end='. ')
-        return False
+        open_parenth = '([{'
+        close_parenth = ')]}'
+        dict_open_parenth = dict(zip(open_parenth, close_parenth))
+        # print(f'__{dict_parentheses}__', end='. ')
+
+        stack_open_parenth = [ss[0]]
+        # print(f'__{stack_open_parenth}__', end='. ')
+        # print(f'__{ss[1:]}__', end='. ')
+        if ss[0] in close_parenth:
+            return False
+        for character in ss[1:]:
+            # print(f'__{character}__', end='. ')
+            if character in open_parenth:
+                stack_open_parenth.append(character)
+                continue
+            else:
+                if 0 == len(stack_open_parenth):
+                    return False
+            if dict_open_parenth[stack_open_parenth.pop()] != character:
+                return False
+        # print(f'__{stack_open_parenth}__', end='. ')
+        return True if 0 == len(stack_open_parenth) else False
 
 
 def test(input_strs: str) -> None:
@@ -67,6 +86,13 @@ def main_loop():
     test("(]")                          # output:False
     test("([)]")                        # output:False
     test("{[]}")                        # output:True
+    print('\n')
+    test("{")                           # output:False
+    test("{[(")                         # output:False
+    test("]")                           # output:False
+    test(")]}")                         # output:False
+    test("(){}}{")                      # output:False
+    test("[])")                         # output:False
 
 
 if __name__ == '__main__':
