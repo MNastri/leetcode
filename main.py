@@ -37,6 +37,8 @@ def test(input_strs: List[str]) -> None:
 
 
 def main_loop():
+    test([])                            #output:""
+    test(['testing'])                   #output:"testing"
     test(['flower', 'flow', 'flight'])  #output:"fl"
     test(['dog', 'racecar', 'car'])     #output:""
 
