@@ -24,7 +24,7 @@ from typing import List
 
 
 class Solution:
-    """ Solução do problema. Não precisa inicializar"""
+    """ Solução do problema. Não precisa inicializar a classe"""
     def longest_common_prefix(self, strs: List[str]) -> str:
         return ""
 
@@ -37,8 +37,9 @@ def test(input_strs: List[str]) -> None:
 
 
 def main_loop():
-    test(['flower', 'flow', 'flight'])
-    test(['dog', 'racecar', 'car'])
+    test(['flower', 'flow', 'flight'])  #output:"fl"
+    test(['dog', 'racecar', 'car'])     #output:""
+
 
 
 if __name__ == '__main__':
