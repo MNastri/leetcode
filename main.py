@@ -29,12 +29,16 @@ class Solution:
         if 0 == len(strs):
             return ""
         if 1 == len(strs):
-            return ""
-        return_str = strs[0]
+            return strs[0]
+        return_str: str = strs[0]
 
-        for first_item in strs:
-            for second_item in strs[1:]:
-                pass
+        # for first_item in strs:
+        #     for second_item in strs[1:]:
+        #         print(f'len(return_strs)=={len(return_str)}')
+        #         if 0 == len(return_str):
+        #             return ""
+        #         return_str = return_str[:1]
+        #         pass
         # comparar itens dois a dois
         # nos itens, comparar letra a letra?
         # já tenho uma string de retorno, como comparar string com string?
