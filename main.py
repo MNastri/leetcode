@@ -32,6 +32,14 @@ class Solution:
             return ""
         return_str = strs[0]
 
+        for first_item in strs:
+            for second_item in strs[1:]:
+                pass
+        # comparar itens dois a dois
+        # nos itens, comparar letra a letra?
+        # já tenho uma string de retorno, como comparar string com string?
+        # como reduzir o tamanho da string de retorno caso não haja o prefixo nas duas strings?
+        # quando a string de retorno tiver tamanho zero, retornar ""
         return return_str
 
 
