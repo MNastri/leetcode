@@ -43,7 +43,7 @@ class Solution:
 
         for items in strs[1:]:
             for index in range(1, len(return_str)+1):
-                # por algum motivo return_str[0] = '', então começo o index de 1 verificar a partir de return_str[1]
+                # estranhamente return_str[0] = '', então tem que verificar a string a partir do índice 1
                 print(f'({return_str[:index]}', end=',')
                 print(f'{items[:index]})', end='.')
                 if items[:index] != return_str[:index]:
