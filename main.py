@@ -26,14 +26,20 @@ from typing import List
 class Solution:
     """ Solução do problema. Não precisa inicializar a classe"""
     def longest_common_prefix(self, strs: List[str]) -> str:
-        return ""
+        if 0 == len(strs):
+            return ""
+        if 1 == len(strs):
+            return ""
+        return_str = strs[0]
+
+        return return_str
 
 
 def test(input_strs: List[str]) -> None:
     """ Teste a string na solução."""
     print('\nInput %s' % input_strs, end='. ')
     a = Solution()
-    print('Output %s' % a.longest_common_prefix(input_strs), end='. ')
+    print('Output "%s"' % a.longest_common_prefix(input_strs), end='. ')
 
 
 def main_loop():
