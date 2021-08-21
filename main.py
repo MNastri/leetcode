@@ -56,9 +56,9 @@ class Solution:
 
 def test(input_strs: str) -> None:
     """ Teste a string na solução."""
-    print('\nInput: %s' % input_strs, end='. ')
+    print('\nInput:"%s"' % input_strs, end='. ')
     a = Solution()
-    print('Output: %s' % a.is_valid(input_strs), end='. ')
+    print('Output:%s' % a.is_valid(input_strs), end='. ')
 
 
 def main_loop():
