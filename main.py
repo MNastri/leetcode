@@ -41,8 +41,8 @@ class ListNode:
     def __init__(self, val=0, nxt=None):
         self.value = val
         self.next = nxt
-    def __str__(self):
-        return str(self.value)
+    # def __str__(self):
+    #     return str(self.value)
 
 class Solution:
     """ Solução do problema. Não precisa inicializar a classe"""
