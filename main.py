@@ -1,7 +1,7 @@
 """
-https://leetcode.com/problems/valid-parentheses/
-Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string
-is valid.
+https://leetcode.com/problems/merge-two-sorted-lists/
+Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes
+of the first two lists.
 
 An input string is valid if:
 
@@ -10,89 +10,76 @@ An input string is valid if:
 
 Example 1:
 
-Input: s = "()"
-Output: true
+Input: l1 = [1,2,4], l2 = [1,3,4]
+Output: [1,1,2,3,4,4]
 
 Example 2:
 
-Input: s = "()[]{}"
-Output: true
+Input: l1 = [], l2 = []
+Output: []
 
 Example 3:
 
-Input: s = "(]"
-Output: false
-
-Example 4:
-
-Input: s = "([)]"
-Output: false
-
-Example 5:
-
-Input: s = "{[]}"
-Output: true
+Input: l1 = [], l2 = [0]
+Output: [0]
 
 Constraints:
--- 1 <= s.length <= 10**4
--- s consists of parentheses only '()[]{}'.
+-- The number of nodes in both lists is in the range [0, 50].
+-- -100 <= Node.val <= 100
+-- Both l1 and l2 are sorted in non-decreasing order.
 """
 
-from typing import List
+from typing import List, Optional
 
+
+class ListNode:
+    """ Uma lista de nodos linkada.
+
+    representação
+    [1,2,3] = 1->2->3
+    """
+    def __init__(self, val=0, nxt=None):
+        self.value = val
+        self.next = nxt
+    def __str__(self):
+        return str(self.value)
 
 class Solution:
     """ Solução do problema. Não precisa inicializar a classe"""
-    def is_valid(self, ss: str) -> bool:
+    def mergeTwoLists(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         """
-        Retorne se a string tem abertura e fechamento de parenteses correta.
-        :param ss: string contendo apenas sinais de parenteses dentre os caracteres '()[]{}'.
+
+        :param l1:
+        :param l2:
         :return:
         """
-        open_parenth = '([{'
-        close_parenth = ')]}'
-        dict_open_parenth = dict(zip(open_parenth, close_parenth))
-        # print(f'__{dict_parentheses}__', end='. ')
+        return []
 
-        stack_open_parenth = [ss[0]]
-        # print(f'__{stack_open_parenth}__', end='. ')
-        # print(f'__{ss[1:]}__', end='. ')
-        if ss[0] in close_parenth:
-            return False
-        for character in ss[1:]:
-            # print(f'__{character}__', end='. ')
-            if character in open_parenth:
-                stack_open_parenth.append(character)
-                continue
-            else:
-                if 0 == len(stack_open_parenth):
-                    return False
-            if dict_open_parenth[stack_open_parenth.pop()] != character:
-                return False
-        # print(f'__{stack_open_parenth}__', end='. ')
-        return True if 0 == len(stack_open_parenth) else False
-
-
-def test(input_strs: str) -> None:
-    """ Teste a string na solução."""
-    print('\nInput:"%s"' % input_strs, end='. ')
+def test(ln1: ListNode, ln2: ListNode) -> None:
+    """ Teste o input na solução."""
+    print(f'\nInput:[{ln1}],[{ln2}', end='. ')
     a = Solution()
-    print('Output:%s' % a.is_valid(input_strs), end='. ')
+    print(f'Output:{a.mergeTwoLists(ln1, ln2)}', end='. ')
 
 
 def main_loop():
-    test("()")                          # output:True
-    test("()[]{}")                      # output:True
-    test("(]")                          # output:False
-    test("([)]")                        # output:False
-    test("{[]}")                        # output:True
-    print('\n')
-    test("{")                           # output:False
-    test("{[(")                         # output:False
-    test("]")                           # output:False
-    test(")]}")                         # output:False
-    test("(){}}{")                      # output:False
-    test("[])")                         # output:False
+    # testes com listas
+    test([1,2,4], [1,3,4])
+    test([],[])
+    test([],[0])
+
+    # implementar testes com ListNode que ainda não tenho certeza de como fazer
+    # ln1 = ListNode([1,2,4])
+    # ln2 = ListNode([1,3,4])
+    # test(ln1, ln2)
+    #
+    # ln1 = ListNode([])
+    # ln2 = ListNode([])
+    # test(ln1, ln2)
+    #
+    # ln1 = ListNode([])
+    # ln2 = ListNode([0])
+    # test(ln1, ln2)
 
 
 if __name__ == '__main__':
