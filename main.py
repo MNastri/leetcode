@@ -46,7 +46,7 @@ class ListNode:
 
 class Solution:
     """ Solução do problema. Não precisa inicializar a classe"""
-    def mergeTwoLists(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+    def merge_two_lists(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         """
 
         :param l1:
