@@ -33,16 +33,22 @@ from typing import List, Optional
 
 
 class ListNode:
-    """ Uma lista de nodos linkada.
-
-    representação
-    [1,2,3] = 1->2->3
-    """
-    def __init__(self, val=0, nxt=None):
-        self.value = val
+    """ Nodos para uma lista linkada."""
+    def __init__(self, value=0, nxt=None):
+        self.val = value
         self.next = nxt
-    # def __str__(self):
-    #     return str(self.value)
+
+    def print_val(self):
+        items = []
+        items.append(self.val)
+        if self.next == None:
+            return
+        node = self.next
+        while node:
+            items.append(node.val)
+            node = node.next
+        print(f'{items}')
+
 
 class Solution:
     """ Solução do problema. Não precisa inicializar a classe"""
@@ -53,24 +59,46 @@ class Solution:
         :param l2:
         :return:
         """
-        return []
+        tail = dummy = ListNode()
+        # l1.print_val()
+        # l2.print_val()
+        while l1 and l2:
+            if l1.val <= l2.val:
+                tail.next = l1
+                l1 = l1.next
+            else:
+                tail.next = l2
+                l2 = l2.next
+            tail = tail.next
+        if l1:
+            tail.next = l1
+        elif l2:
+            tail.next = l2
+        # dummy.print_val()
+        return dummy.next
+
 
 def test(ln1: ListNode, ln2: ListNode) -> None:
     """ Teste o input na solução."""
-    print(f'\nInput:[{ln1}],[{ln2}', end='. ')
+    print(f'\nInput:{ln1},{ln2}', end='. ')
     a = Solution()
-    print(f'Output:{a.mergeTwoLists(ln1, ln2)}', end='. ')
+    print(f'Output:{a.merge_two_lists(ln1, ln2)}', end='. ')
 
 
 def main_loop():
-    # testes com listas
-    test([1,2,4], [1,3,4])
-    test([],[])
-    test([],[0])
-
     # implementar testes com ListNode que ainda não tenho certeza de como fazer
-    # ln1 = ListNode([1,2,4])
-    # ln2 = ListNode([1,3,4])
+    ln1 = ListNode(4)
+    ln1 = ListNode(2, ln1)
+    ln1 = ListNode(1, ln1)
+
+    ln2 = ListNode(4)
+    ln2 = ListNode(3, ln2)
+    ln2 = ListNode(1, ln2)
+
+    test(ln1, ln2)
+
+    # ln1 = ListNode([1, 2, 4])
+    # ln2 = ListNode([1, 3, 4])
     # test(ln1, ln2)
     #
     # ln1 = ListNode([])
