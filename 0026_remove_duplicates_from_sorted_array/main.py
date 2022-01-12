@@ -50,43 +50,42 @@ Constraints:
 nums is sorted in non-decreasing order.
 """
 
-from typing import List, Optional
+from typing import List
 
 
 class Solution:
-    """ Solução do problema. Não precisa inicializar a classe."""
-    def remove_duplicates(self, nums: List[int]) -> int:
-        # ii = 0
-        # while nums[ii] <= nums[ii+1]:
-        #     if nums[ii] == nums[ii+1]:
-        #
-        #         if len(nums) - 1 >= ii:
-        #             nums = nums[:ii] + nums[ii + 1:len(nums)] + nums[ii:ii + 1]
-        #         continue
-        #     ii += 1
-        #     if len(nums)-1 == ii:
-        #         break
-        #     print(f'{nums}')
-        # return ii+1
-
-        kk = 0
-        return kk
+    def removeDuplicates(self, nums: List[int]) -> int:
+        if nums == []:
+            return 0
+        last_changed_number = nums[0]
+        idx = 1
+        for number in nums[1:]:
+            if number == last_changed_number:
+                continue
+            nums[idx] = number
+            last_changed_number = number
+            idx += 1
+        return idx
 
 
-def test(nums:List[int]) -> None:
-    """ Teste o input na solução."""
-    print(f'\nInput: nums = {nums}', end='. ')
-    a = Solution()
-    print(f'Output: {a.remove_duplicates(nums)}', end=', ')
-    print(f'nums = {nums}', end='. ')
-
-
-def main_loop():
-    nums = [1, 1, 2]
-    test(nums)
-    nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
-    test(nums)
+def test(nums: List[int], k, expectedNums) -> None:
+    solution = Solution()
+    my_k = solution.removeDuplicates(nums)
+    assert my_k == k
+    for idx, (solution_int, expected_int) in enumerate(zip(nums, expectedNums)):
+        if idx >= k:
+            break
+        assert solution_int == expected_int
 
 
 if __name__ == '__main__':
-    main_loop()
+    test_cases = [
+        {'nums': [1, 1, 2],
+         'k': 2,
+         'expectedNums': [1, 2, float('inf')]},
+        {'nums': [0, 0, 1, 1, 1, 2, 2, 3, 3, 4],
+         'k': 5,
+         'expectedNums': [0, 1, 2, 3, 4, float('inf'), float('inf'), float('inf'), float('inf'), float('inf')]}
+    ]
+    for test_case in test_cases:
+        test(**test_case)
