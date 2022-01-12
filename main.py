@@ -55,14 +55,29 @@ from typing import List, Optional
 
 class Solution:
     """ Solução do problema. Não precisa inicializar a classe."""
-    def removeDuplicates(self, nums: List[int]) -> int:
-        return -1
+    def remove_duplicates(self, nums: List[int]) -> int:
+        # ii = 0
+        # while nums[ii] <= nums[ii+1]:
+        #     if nums[ii] == nums[ii+1]:
+        #
+        #         if len(nums) - 1 >= ii:
+        #             nums = nums[:ii] + nums[ii + 1:len(nums)] + nums[ii:ii + 1]
+        #         continue
+        #     ii += 1
+        #     if len(nums)-1 == ii:
+        #         break
+        #     print(f'{nums}')
+        # return ii+1
+
+        kk = 0
+        return kk
+
 
 def test(nums:List[int]) -> None:
     """ Teste o input na solução."""
     print(f'\nInput: nums = {nums}', end='. ')
     a = Solution()
-    print(f'Output: {a.removeDuplicates(nums)}', end=', ')
+    print(f'Output: {a.remove_duplicates(nums)}', end=', ')
     print(f'nums = {nums}', end='. ')
 
 
