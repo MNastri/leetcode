@@ -1,3 +1,4 @@
 # ignorar main.py
 #/main.py
 /venv
+/.idea
