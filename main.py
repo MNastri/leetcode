@@ -12,18 +12,18 @@ DIFFICULTIES = {0, 1, 2}
 
 def get_problem_number(filename: str) -> int:
     """Returns the problem number from a directory name."""
-    return int(filename[:4])
+    return int(filename[1:5])
 
 
 def get_problem_difficulty(filename: str) -> int:
     """Returns the problem difficulty from a directory name."""
-    return int(filename[5:6])
+    return int(filename[6:7])
 
 
 def get_problems_by_difficulty() -> t.List[t.List[int]]:
     """Returns the list of problems by difficulty."""
     files = listdir(BASE_FOLDER)
-    files = [ff for ff in files if isdir(join(BASE_FOLDER, ff))]
+    files = [ff for ff in files if isdir(join(BASE_FOLDER, ff)) and ff.startswith("p")]
     all_problems = [
         (get_problem_number(filename=ff), get_problem_difficulty(filename=ff))
         for ff in files
