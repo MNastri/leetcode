@@ -37,5 +37,10 @@ def get_problems_by_difficulty() -> t.List[t.List[int]]:
 
 if __name__ == "__main__":
     solved = get_problems_by_difficulty()
+    counts = map(len, solved)
+    biggest_count = max(counts)
+    charact_of_count = len(str(biggest_count))
+    whitespace = " "*charact_of_count
     for idx, diff in enumerate(solved):
-        print(f"Dificuldade {idx} - Problemas ({len(diff):^4}): {diff}")
+        len_of_diff = (whitespace + str(len(diff)))[-charact_of_count:]
+        print(f"Dificuldade {idx} - Problemas ({len_of_diff}): {diff}")
