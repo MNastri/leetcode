@@ -10,7 +10,7 @@ def left_of_median(array: List[int]) -> int:
     ll = len(array)
     if ll % 2 == 0:
         return array[int(ll / 2 - 1)]
-    raise TypeError("array should have even size")
+    return array[int(ll / 2 - 2)]
 
 
 if __name__ == "__main__":
@@ -22,7 +22,7 @@ def right_of_median(array: List[int]) -> int:
     ll = len(array)
     if ll % 2 == 0:
         return array[int(ll / 2)]
-    raise TypeError("array should have even size")
+    return array[int(ll / 2 + 1)]
 
 
 if __name__ == "__main__":
