@@ -12,6 +12,7 @@ from problems.p0004_2_median_of_two_sorted_arrays.main import (
 
 
 def median_of_arrays(array1: List[int], array2: List[int]) -> float:
+    """Assumes arrays are sorted."""
     if len(array1) != len(array2):
         tmp_array1 = array1 if len(array1) < len(array2) else array2
         tmp_array2 = array2 if len(array1) < len(array2) else array1

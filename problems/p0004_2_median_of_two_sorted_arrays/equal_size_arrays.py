@@ -7,6 +7,7 @@ from problems.p0004_2_median_of_two_sorted_arrays.main import (
 
 
 def median_of_arrays(array1: List[int], array2: List[int]) -> float:
+    """Assumes arrays are sorted."""
     if len(array1) == len(array2) == 2:
         return (max([array1[0], array2[0]]) + min([array1[1], array2[1]])) / 2
     if len(array1) == len(array2) == 1:

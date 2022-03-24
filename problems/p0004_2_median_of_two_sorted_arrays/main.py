@@ -10,6 +10,7 @@ class Solution:
 
 
 def left_of_median(array: List[int]) -> int:
+    """Assumes array is sorted."""
     ll = len(array)
     if ll % 2 == 0:
         return array[int(ll / 2 - 1)]
@@ -24,6 +25,7 @@ if __name__ == "__main__":
 
 
 def right_of_median(array: List[int]) -> int:
+    """Assumes array is sorted."""
     ll = len(array)
     if ll % 2 == 0:
         return array[int(ll / 2)]
@@ -38,6 +40,7 @@ if __name__ == "__main__":
 
 
 def get_array_median(array: List[int]) -> float:
+    """Assumes array is sorted."""
     ll = len(array)
     if ll == 1:
         return array[0]
@@ -55,7 +58,8 @@ if __name__ == "__main__":
     print(get_array_median(array=arr1))
 
 
-def get_upper_half_of(array):
+def get_upper_half_of(array: List[int]) -> List[int]:
+    """Assumes array is sorted."""
     ll = len(array)
     if ll == 1:
         return array
@@ -71,7 +75,8 @@ if __name__ == "__main__":
     print(get_upper_half_of(array=arr1))
 
 
-def get_lower_half_of(array):
+def get_lower_half_of(array: List[int]) -> List[int]:
+    """Assumes array is sorted."""
     ll = len(array)
     if ll == 1:
         return array
@@ -90,6 +95,7 @@ if __name__ == "__main__":
 def get_arrays_between_medians(
     array1: List[int], array2: List[int]
 ) -> Tuple[List[int], List[int]]:
+    """Assumes arrays are sorted."""
     m1 = get_array_median(array1)
     m2 = get_array_median(array2)
     new_array1 = None
