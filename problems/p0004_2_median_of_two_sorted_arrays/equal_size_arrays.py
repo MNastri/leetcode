@@ -8,10 +8,12 @@ from problems.p0004_2_median_of_two_sorted_arrays.main import (
 
 
 def median_of_arrays(array1: List[int], array2: List[int]) -> float:
-    if len(array1)==1:
-        return (array1[0] + array2[0])/2
+    if len(array1) == 1:
+        return (array1[0] + array2[0]) / 2
     m1 = median(array1)
     m2 = median(array2)
+    new_array1 = None
+    new_array2 = None
     if m1 == m2:
         return m1
     if m1 < m2:
@@ -30,6 +32,14 @@ def median_of_arrays(array1: List[int], array2: List[int]) -> float:
 if __name__ == "__main__":
     arr1 = [14, 36, 96]
     arr2 = [12, 26, 82]
-    solution = median(sorted(arr1+arr2))
+    solution = median(sorted(arr1 + arr2))
     print(solution)
-    print(median_of_arrays(array1=arr1, array2=arr2))
+    func_solution = median_of_arrays(array1=arr1, array2=arr2)
+    print(func_solution)
+
+    arr1 = [10, 14, 36, 96]
+    arr2 = [0, 12, 26, 82]
+    solution = median(sorted(arr1 + arr2))
+    print(solution)
+    func_solution = median_of_arrays(array1=arr1, array2=arr2)
+    print(func_solution)
