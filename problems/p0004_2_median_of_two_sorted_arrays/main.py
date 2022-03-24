@@ -7,11 +7,14 @@ class Solution:
 
 
 def median(array: List[int]) -> float:
-    if len(array) % 2 == 0:
-        left_of_median = array[int(len(array) / 2) - 1]
-        right_of_median = array[int(len(array) / 2)]
+    ll = len(array)
+    if ll == 1:
+        return array[0]
+    if ll % 2 == 0:
+        left_of_median = array[int(ll / 2 - 1)]
+        right_of_median = array[int(ll / 2)]
         return (left_of_median + right_of_median) / 2
-    return array[int((len(array) - 1) / 2)]
+    return array[int((ll - 1) / 2)]
 
 
 # if __name__ == "__main__":
