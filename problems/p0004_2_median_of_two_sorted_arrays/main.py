@@ -34,7 +34,7 @@ if __name__ == "__main__":
     print(right_of_median(array=arr))
 
 
-def median(array: List[int]) -> float:
+def get_array_median(array: List[int]) -> float:
     ll = len(array)
     if ll == 1:
         return array[0]
@@ -47,9 +47,9 @@ def median(array: List[int]) -> float:
 
 if __name__ == "__main__":
     arr = [0, 7, 39, 42]
-    print(median(array=arr))
+    print(get_array_median(array=arr))
     arr1 = [0, 7, 25, 39, 42]
-    print(median(array=arr1))
+    print(get_array_median(array=arr1))
 
 
 def get_upper_half_of(array):
