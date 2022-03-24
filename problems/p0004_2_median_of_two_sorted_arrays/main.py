@@ -10,11 +10,13 @@ def left_of_median(array: List[int]) -> int:
     ll = len(array)
     if ll % 2 == 0:
         return array[int(ll / 2 - 1)]
-    return array[int(ll / 2 - 2)]
+    return array[int(ll / 2 - 3 / 2)]
 
 
 if __name__ == "__main__":
     arr = [0, 7, 39, 42]
+    print(left_of_median(array=arr))
+    arr = [0, 7, 39, 42, 70]
     print(left_of_median(array=arr))
 
 
