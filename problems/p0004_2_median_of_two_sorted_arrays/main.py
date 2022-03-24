@@ -40,6 +40,22 @@ if __name__ == "__main__":
     print(get_upper_half_of(array=arr1))
 
 
+def get_lower_half_of(array):
+    ll = len(array)
+    if ll == 1:
+        return array
+    if ll % 2 == 0:
+        return array[: int(ll / 2)]
+    return array[: int((ll + 1) / 2)]
+
+
+if __name__ == "__main__":
+    arr = [0, 7, 39, 42]
+    print(get_lower_half_of(array=arr))
+    arr1 = [0, 7, 23, 39, 42]
+    print(get_lower_half_of(array=arr1))
+
+
 def merge_arrays(array1: List[int], array2: List[int]) -> List[int]:
     if len(array1) <= len(array2):
         tmp_arr0 = array1
