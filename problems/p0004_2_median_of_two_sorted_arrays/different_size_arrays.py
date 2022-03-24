@@ -3,7 +3,7 @@ from typing import List
 from problems.p0004_2_median_of_two_sorted_arrays.equal_size_arrays import (
     median_of_arrays as median_of_arrays_same_size,
 )
-from problems.p0004_2_median_of_two_sorted_arrays.main import (
+from problems.p0004_2_median_of_two_sorted_arrays.utils import (
     get_array_median,
     get_arrays_between_medians,
     left_of_median,
