@@ -15,12 +15,12 @@ def median_of_arrays(array1: List[int], array2: List[int]) -> float:
     if m1 == m2:
         return m1
     if m1 < m2:
-        # median(array1) < median_of_arrays < median(array2)
+        # median(array1) <= median_of_arrays <= median(array2)
         # discard beginning of array1 and ending of array2
         new_array1 = get_upper_half_of(array=array1)
         new_array2 = get_lower_half_of(array=array2)
     elif m2 < m1:
-        # median(array2) < median_of_arrays < median(array1)
+        # median(array2) <= median_of_arrays <= median(array1)
         # discard beginning of array2 and ending of array1
         new_array1 = get_lower_half_of(array=array1)
         new_array2 = get_upper_half_of(array=array2)
