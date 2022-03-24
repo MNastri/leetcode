@@ -4,7 +4,7 @@ from typing import (
 )
 
 
-def left_of_median(array: List[int]) -> int:
+def left_of_median(array: List[float]) -> float:
     """Assumes array is sorted."""
     ll = len(array)
     if ll % 2 == 0:
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     print(left_of_median(array=arr))
 
 
-def right_of_median(array: List[int]) -> int:
+def right_of_median(array: List[float]) -> float:
     """Assumes array is sorted."""
     ll = len(array)
     if ll % 2 == 0:
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     print(right_of_median(array=arr))
 
 
-def get_array_median(array: List[int]) -> float:
+def get_array_median(array: List[float]) -> float:
     """Assumes array is sorted."""
     ll = len(array)
     if ll == 1:
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     print(get_array_median(array=arr1))
 
 
-def get_upper_half_of(array: List[int]) -> List[int]:
+def get_upper_half_of(array: List[float]) -> List[float]:
     """Assumes array is sorted."""
     ll = len(array)
     if ll == 1:
@@ -70,7 +70,7 @@ if __name__ == "__main__":
     print(get_upper_half_of(array=arr1))
 
 
-def get_lower_half_of(array: List[int]) -> List[int]:
+def get_lower_half_of(array: List[float]) -> List[float]:
     """Assumes array is sorted."""
     ll = len(array)
     if ll == 1:
@@ -88,7 +88,7 @@ if __name__ == "__main__":
 
 
 def get_arrays_between_medians(
-    array1: List[int], array2: List[int]
+    array1: List[float], array2: List[float]
 ) -> Tuple[List[float], List[float]]:
     """Assumes arrays are sorted."""
     m1 = get_array_median(array1)
