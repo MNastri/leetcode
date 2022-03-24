@@ -30,6 +30,8 @@ def right_of_median(array: List[int]) -> int:
 if __name__ == "__main__":
     arr = [0, 7, 39, 42]
     print(right_of_median(array=arr))
+    arr = [0, 7, 23, 39, 70]
+    print(right_of_median(array=arr))
 
 
 def median(array: List[int]) -> float:
