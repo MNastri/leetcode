@@ -43,3 +43,10 @@ if __name__ == "__main__":
     print(solution)
     func_solution = median_of_arrays(array1=arr1, array2=arr2)
     print(func_solution)
+
+    arr1 = [0, 0, 0, 0, 0, 0, 44, 78, 86]
+    arr2 = [4, 21, 25, 35, 45, 74, 77, 93, 94]
+    solution = median(sorted(arr1 + arr2))
+    print(solution)
+    func_solution = median_of_arrays(array1=arr1, array2=arr2)
+    print(func_solution)
