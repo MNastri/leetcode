@@ -32,8 +32,8 @@ class Solution:
             return arr_a[slc_a[0] + pos]
         idx_med_a = (slc_a[1] - slc_a[0]) // 2
         idx_med_b = (slc_b[1] - slc_b[0]) // 2
-        med_a = arr_a[idx_med_a]
-        med_b = arr_b[idx_med_b]
+        med_a = arr_a[slc_a[0]+idx_med_a]
+        med_b = arr_b[slc_b[0]+idx_med_b]
         if idx_med_a + idx_med_b < pos:
             # the median is after the combined indexes of the medians of arr_a and arr_b
             if med_b < med_a:
@@ -91,4 +91,8 @@ if __name__ == "__main__":
     arr1 = [5, 6]
     arr2 = [1, 2, 3, 4]
     print(3.5)
+    print(Solution().findMedianSortedArrays(nums1=arr1, nums2=arr2))
+    arr1 = [1, 2, 2]
+    arr2 = [1, 2, 3]
+    print(2)
     print(Solution().findMedianSortedArrays(nums1=arr1, nums2=arr2))
