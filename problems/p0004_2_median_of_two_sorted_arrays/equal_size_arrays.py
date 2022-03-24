@@ -1,9 +1,8 @@
 from typing import List
 
 from problems.p0004_2_median_of_two_sorted_arrays.main import (
-    get_lower_half_of,
-    get_upper_half_of,
     get_array_median,
+    get_arrays_between_medians,
 )
 
 
@@ -16,22 +15,7 @@ def median_of_arrays(array1: List[int], array2: List[int]) -> float:
         raise TypeError("arrays should be non-empty")
     if len(array1) != len(array2):
         raise TypeError("arrays should have the same size")
-    m1 = get_array_median(array1)
-    m2 = get_array_median(array2)
-    new_array1 = None
-    new_array2 = None
-    if m1 == m2:
-        return m1
-    if m1 < m2:
-        # median(array1) <= median_of_arrays <= median(array2)
-        # discard beginning of array1 and ending of array2
-        new_array1 = get_upper_half_of(array=array1)
-        new_array2 = get_lower_half_of(array=array2)
-    elif m2 < m1:
-        # median(array2) <= median_of_arrays <= median(array1)
-        # discard beginning of array2 and ending of array1
-        new_array1 = get_lower_half_of(array=array1)
-        new_array2 = get_upper_half_of(array=array2)
+    new_array1, new_array2 = get_arrays_between_medians(array1, array2)
     return median_of_arrays(array1=new_array1, array2=new_array2)
 
 

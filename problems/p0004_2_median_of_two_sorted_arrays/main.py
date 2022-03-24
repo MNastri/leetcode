@@ -1,4 +1,7 @@
-from typing import List
+from typing import (
+    List,
+    Tuple,
+)
 
 
 class Solution:
@@ -84,29 +87,23 @@ if __name__ == "__main__":
     print(get_lower_half_of(array=arr1))
 
 
-def merge_arrays(array1: List[int], array2: List[int]) -> List[int]:
-    if len(array1) <= len(array2):
-        tmp_arr0 = array1
-        tmp_arr1 = array2
-    elif len(array2) < len(array2):
-        tmp_arr0 = array2
-        tmp_arr1 = array1
-    # pick first element of tmp_arr0
-    # compare with median of tmp_arr1
-    # LOOP1
-    # LOOP
-    # if smaller, get subarray up until median
-    # if bigger , get subarray from median and on
-    # compare element with the median of subarray
-    # repeat until len of subarray == 2 (GOTO LOOP)
-    #
-    # if right_item < element, rebuild subarray and return it
-    # elif left_item < element, rebuild subarray and return it
-    # else left_item == righ_item, rebuild subarray and return it
-    #
-    # find index of element added into tmp_arr1
-    # exclude from checking before this point in array by creating a new tmp_arr1
-    # pick next element of tmp_arr0
-    # compare with median of tmp_arr1
-    # repeat until reaching end of tmp_arr0 (GOTO LOOP1)
-    return tmp_arr1
+def get_arrays_between_medians(
+    array1: List[int], array2: List[int]
+) -> Tuple[List[int], List[int]]:
+    m1 = get_array_median(array1)
+    m2 = get_array_median(array2)
+    new_array1 = None
+    new_array2 = None
+    if m1 == m2:
+        return m1
+    if m1 < m2:
+        # median(array1) <= median_of_arrays <= median(array2)
+        # discard beginning of array1 and ending of array2
+        new_array1 = get_upper_half_of(array=array1)
+        new_array2 = get_lower_half_of(array=array2)
+    elif m2 < m1:
+        # median(array2) <= median_of_arrays <= median(array1)
+        # discard beginning of array2 and ending of array1
+        new_array1 = get_lower_half_of(array=array1)
+        new_array2 = get_upper_half_of(array=array2)
+    return new_array1, new_array2
