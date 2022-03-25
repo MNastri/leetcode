@@ -24,14 +24,19 @@ class Solution:
          - space complexity: O(1)
         """
         if slc_a is None and slc_b is None:
+            # set the slices for the arrays
             slc_a = (0, len(arr_a))
             slc_b = (0, len(arr_b))
         if slc_a[0] == slc_a[1]:
+            # arr_a is empty, median is in arr_b
             return arr_b[slc_b[0] + pos]
         if slc_b[0] == slc_b[1]:
+            # arr_b is empty, median is in arr_a
             return arr_a[slc_a[0] + pos]
+        # get the indexes for the medians
         idx_med_a = (slc_a[1] - slc_a[0]) // 2
         idx_med_b = (slc_b[1] - slc_b[0]) // 2
+        # get the medians
         med_a = arr_a[slc_a[0]+idx_med_a]
         med_b = arr_b[slc_b[0]+idx_med_b]
         if idx_med_a + idx_med_b < pos:
