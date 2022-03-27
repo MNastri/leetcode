@@ -1,3 +1,4 @@
+import os
 import typing as t
 
 from os import listdir
@@ -18,6 +19,40 @@ def get_problem_number(filename: str) -> str:
 def get_problem_difficulty(filename: str) -> int:
     """Returns the problem difficulty from a directory name."""
     return int(filename[6:7])
+
+
+def get_problem_name(filename: str) -> str:
+    """Returns the problem name from a directory name."""
+    return filename[8:]
+
+
+def offset_problem_difficulty(offset: int) -> None:
+    """Renames all problem packages adding offset to their difficulty. Offset
+    can be negative.
+    """
+    files = listdir(BASE_FOLDER)
+    files = [ff for ff in files if isdir(join(BASE_FOLDER, ff)) and ff.startswith("p")]
+    numbers = [get_problem_number(ff) for ff in files]
+    difficulties = []
+    for ff in files:
+        diff = get_problem_difficulty(ff) + offset
+        assert (
+            diff in DIFFICULTIES
+        ), f"A nova dificuldade {diff} para {ff} não está prevista"
+        difficulties += (diff,)
+    names = [get_problem_name(ff) for ff in files]
+    new_file_str = "p{number}_{difficulty}_{name}"
+    new_files = [
+        new_file_str.format(number=num, difficulty=dd, name=name)
+        for num, dd, name in zip(numbers, difficulties, names)
+    ]
+    assert len(files) == len(new_files)
+    for src, dst in zip(files, new_files):
+        os.rename(os.path.join(BASE_FOLDER, src), os.path.join(BASE_FOLDER, dst))
+
+
+# if __name__ == "__main__":
+#     offset_problem_difficulty(1)
 
 
 def get_problems_by_difficulty() -> t.List[t.List[int]]:
