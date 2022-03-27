@@ -7,7 +7,7 @@ from os.path import (
 )
 
 BASE_FOLDER = "problems"
-DIFFICULTIES = {0, 1, 2}
+DIFFICULTIES = {0, 1, 2, 3, 4}
 
 
 def get_problem_number(filename: str) -> int:
@@ -30,7 +30,9 @@ def get_problems_by_difficulty() -> t.List[t.List[int]]:
     ]
     solved_problems = []
     for difficulty in DIFFICULTIES:
-        problems_by_difficulty = [nn for nn, dd in all_problems if dd == difficulty]
+        problems_by_difficulty = [
+            int(nn) for nn, dd in all_problems if int(dd) == difficulty
+        ]
         solved_problems += (problems_by_difficulty,)
     return solved_problems
 
