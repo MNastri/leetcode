@@ -10,9 +10,9 @@ BASE_FOLDER = "problems"
 DIFFICULTIES = {0, 1, 2, 3, 4}
 
 
-def get_problem_number(filename: str) -> int:
+def get_problem_number(filename: str) -> str:
     """Returns the problem number from a directory name."""
-    return int(filename[1:5])
+    return filename[1:5]
 
 
 def get_problem_difficulty(filename: str) -> int:
