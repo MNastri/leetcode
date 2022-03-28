@@ -29,3 +29,14 @@ class TreeNode:
             raise TypeError(
                 f"val should be int or a list of ints, received {type(val)}"
             )
+
+    def _is_symmetric_trees(self, root1, root2) -> bool:
+        if root1 and root2:
+            return (
+                root1.val == root2.val
+                and self._is_symmetric_trees(root1.left, root2.right)
+                and self._is_symmetric_trees(root1.right, root2.left)
+            )
+        if root1 is None and root2 is None:
+            return True
+        return False
