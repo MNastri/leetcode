@@ -83,14 +83,14 @@ def get_easiness_ratios() -> t.List[float]:
     """In relation to the hardest difficulty."""
     counts = count_problems()
     ratios = []
-    end = len(counts)-1
+    end = len(counts) - 1
     while end >= 0 and counts[end] == 0:
         end -= 1
     for diff in counts:
         if diff != 0:
             ratios += (diff / counts[end],)
         elif diff == 0:
-            ratios += (0.,)
+            ratios += (0.0,)
     return ratios
 
 
