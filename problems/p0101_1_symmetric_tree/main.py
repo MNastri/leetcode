@@ -6,7 +6,7 @@ from utils import TreeNode
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
         # return self._is_symmetric_trees(root.left, root.right)
-        return root._is_symmetric_trees(root.left, root.right)
+        return root.is_symmetric_trees(root.left, root.right)
 
     # def _is_symmetric_trees(
     #     self, root1: Optional[TreeNode], root2: Optional[TreeNode]
