@@ -90,7 +90,7 @@ def get_easiness_ratios() -> t.List[float]:
         if diff != 0:
             ratios += (diff / counts[end],)
         elif diff == 0:
-            ratios += (0,)
+            ratios += (0.,)
     return ratios
 
 
