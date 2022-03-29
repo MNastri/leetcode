@@ -42,17 +42,18 @@ class TreeNode:
             return True
         return False
 
-    def merge_trees(self, root1, root2)->Optional:
-        """Sums the current node and all nodes below recursively."""
-        result_node = TreeNode()
-        if root1 is not None and root2 is not None:
-            result_node.val = root1.val + root2.val
-            result_node.left = self.merge_trees(root1.left, root2.left)
-            result_node.right = self.merge_trees(root1.right, root2.right)
-        elif root1 is not None and root2 is None:
-            result_node = root1
-        elif root1 is None and root2 is not None:
-            result_node = root2
-        elif root1 is None and root2 is None:
-            return
-        return result_node
+
+def merge_trees(root1, root2) -> Optional:
+    """Sums the current node and all nodes below recursively for the received roots."""
+    result_node = TreeNode()
+    if root1 is not None and root2 is not None:
+        result_node.val = root1.val + root2.val
+        result_node.left = merge_trees(root1.left, root2.left)
+        result_node.right = merge_trees(root1.right, root2.right)
+    elif root1 is not None and root2 is None:
+        result_node = root1
+    elif root1 is None and root2 is not None:
+        result_node = root2
+    elif root1 is None and root2 is None:
+        return
+    return result_node

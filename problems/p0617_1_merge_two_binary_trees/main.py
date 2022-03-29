@@ -1,7 +1,10 @@
 """See the README.html file"""
 from typing import Optional
 
-from utils import TreeNode
+from utils import (
+    merge_trees,
+    TreeNode,
+)
 
 
 class Solution:
@@ -23,7 +26,7 @@ class Solution:
         # elif root1 is None and root2 is None:
         #     return
         # return result_node
-        return TreeNode().merge_trees(root1, root2)
+        return merge_trees(root1, root2)
 
 
 if __name__ == "__main__":
