@@ -31,19 +31,22 @@ class TreeNode:
                 f"val should be int or a list of ints, received {type(val)}"
             )
 
-    def is_symmetric_trees(self, root1, root2) -> bool:
-        if root1 and root2:
-            return (
-                root1.val == root2.val
-                and self.is_symmetric_trees(root1.left, root2.right)
-                and self.is_symmetric_trees(root1.right, root2.left)
-            )
-        if root1 is None and root2 is None:
-            return True
-        return False
+
+def is_symmetric_trees(root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+    if root1 and root2:
+        return (
+            root1.val == root2.val
+            and is_symmetric_trees(root1.left, root2.right)
+            and is_symmetric_trees(root1.right, root2.left)
+        )
+    if root1 is None and root2 is None:
+        return True
+    return False
 
 
-def merge_trees(root1, root2) -> Optional:
+def merge_trees(
+    root1: Optional[TreeNode], root2: Optional[TreeNode]
+) -> Optional[TreeNode]:
     """Sums the current node and all nodes below recursively for the received roots."""
     result_node = TreeNode()
     if root1 is not None and root2 is not None:
