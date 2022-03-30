@@ -2,15 +2,18 @@
 from string import ascii_lowercase
 
 
-def is_palindrome(s):
+def is_palindrome(s) -> bool:
     s = "".join([c.lower() for c in s if c.lower() in ascii_lowercase])
-    print(s)
+    l = len(s)
+    if l == 0 or l == 1:
+        return True
+    # print(s)
 
 
 if __name__ == "__main__":
     input = "A man, a plan, a canal: Panama"
-    is_palindrome(input)
+    print(is_palindrome(input))
     input = "race a car"
-    is_palindrome(input)
+    print(is_palindrome(input))
     input = " "
-    is_palindrome(input)
+    print(is_palindrome(input))
