@@ -16,8 +16,20 @@ def is_palindrome(text: str) -> bool:
 
 if __name__ == "__main__":
     input = "A man, a plan, a canal: Panama"
-    print(input, is_palindrome(input))
+    print(is_palindrome(input), input)
     input = "race a car"
-    print(input, is_palindrome(input))
+    print(is_palindrome(input), input)
     input = " "
-    print(input, is_palindrome(input))
+    print(is_palindrome(input), input)
+    test_text = [
+        "a",
+        "aa",
+        "ab",
+        "aaa",
+        "aab",
+        "aba",
+        "abb",
+        "abc",
+    ]
+    for test_input in test_text:
+        print(is_palindrome(test_input), test_input)
