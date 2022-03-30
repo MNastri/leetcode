@@ -1,4 +1,8 @@
-"""Checks if a phrase is a palindrome."""
+"""Checks if a phrase is a palindrome.
+time complexity: O(n)
+space complexity: O(n)
+where n is the length of the string
+"""
 from string import (
     ascii_lowercase,
     digits,
