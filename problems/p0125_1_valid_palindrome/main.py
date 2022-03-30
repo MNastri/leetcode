@@ -30,6 +30,14 @@ if __name__ == "__main__":
         "aba",
         "abb",
         "abc",
+        "0",
+        "00",
+        "01",
+        "000",
+        "001",
+        "010",
+        "011",
+        "012",
     ]
     for test_input in test_text:
         print(is_palindrome(test_input), test_input)
