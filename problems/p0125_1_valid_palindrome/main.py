@@ -2,12 +2,16 @@
 from string import ascii_lowercase
 
 
-def is_palindrome(s) -> bool:
-    s = "".join([c.lower() for c in s if c.lower() in ascii_lowercase])
-    l = len(s)
-    if l == 0 or l == 1:
+def is_palindrome(text) -> bool:
+    text = "".join([cc.lower() for cc in text if cc.lower() in ascii_lowercase])
+    lng = len(text)
+    if lng == 0 or lng == 1:
         return True
-    # print(s)
+    st_rg = range(lng // 2)
+    en_rg = range(lng - 1, lng // 2 - 1 + lng % 2, -1)
+    start = "".join([text[c] for c in st_rg])
+    end_reversed = "".join([text[c] for c in en_rg])
+    return start == end_reversed
 
 
 if __name__ == "__main__":
