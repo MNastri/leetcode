@@ -1,9 +1,14 @@
 """Checks if a phrase is a palindrome."""
-from string import ascii_lowercase
+from string import (
+    ascii_lowercase,
+    digits,
+)
+
+ALLOWED_CHARS = ascii_lowercase + digits
 
 
-def is_palindrome(text: str) -> bool:
-    text = "".join([cc.lower() for cc in text if cc.lower() in ascii_lowercase])
+def is_palindrome(text: str, allowed_chars: str) -> bool:
+    text = "".join([cc.lower() for cc in text if cc.lower() in allowed_chars])
     lng = len(text)
     if lng == 0 or lng == 1:
         return True
@@ -16,11 +21,11 @@ def is_palindrome(text: str) -> bool:
 
 if __name__ == "__main__":
     input = "A man, a plan, a canal: Panama"
-    print(is_palindrome(input), input)
+    print(is_palindrome(input, ALLOWED_CHARS), input)
     input = "race a car"
-    print(is_palindrome(input), input)
+    print(is_palindrome(input, ALLOWED_CHARS), input)
     input = " "
-    print(is_palindrome(input), input)
+    print(is_palindrome(input, ALLOWED_CHARS), input)
     test_text = [
         "a",
         "aa",
@@ -40,4 +45,4 @@ if __name__ == "__main__":
         "012",
     ]
     for test_input in test_text:
-        print(is_palindrome(test_input), test_input)
+        print(is_palindrome(test_input, ALLOWED_CHARS), test_input)
