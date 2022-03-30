@@ -2,7 +2,7 @@
 from string import ascii_lowercase
 
 
-def is_palindrome(text) -> bool:
+def is_palindrome(text: str) -> bool:
     text = "".join([cc.lower() for cc in text if cc.lower() in ascii_lowercase])
     lng = len(text)
     if lng == 0 or lng == 1:
